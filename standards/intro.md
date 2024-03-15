@@ -1,6 +1,7 @@
 ---
 title: Introduction
 description: Standards approved by the Scrap Mechanic Logic Consortium
+sidebar_position: 1
 ---
 
 # Standards
