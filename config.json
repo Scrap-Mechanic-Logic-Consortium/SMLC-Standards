@@ -1,5 +1,6 @@
 {
     "dataFolder": "standards/",
+    "routeBasePath": "standards",
     "buckets": [
         "docs"
     ]
