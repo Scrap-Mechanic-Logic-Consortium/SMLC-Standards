@@ -8,3 +8,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 release/update_version.py
+        env:
+          WEBSITE_BUILD_TOKEN: ${{ secrets.WEBSITE_BUILD_TOKEN }}
