@@ -13,6 +13,7 @@ These are new terms that are used in this standard that should be made global, w
 ## Terminology
 - An **interface** is a set of logic gates that form an input or output of a creation (and components, which are creations)
 - An **internal** gate is the opposite of an interface gate, so these are gates that are NOT supposed to be connected to external circuitry.
+- A **flatpak** formfactor means that the component is one block tall, and thus entirely flat.
 
 ## General shape
 (This section assumes that you don't rotate the component after having loaded it on the lift, so down stays down)
