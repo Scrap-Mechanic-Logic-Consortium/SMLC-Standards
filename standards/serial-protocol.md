@@ -1,7 +1,6 @@
 ---
 title: Serial Communication Protocol
 description: A basic serial protocol for transmitting data between two devices.
-sidebar_position: 1
 ---
 
 # Standards
