@@ -9,11 +9,11 @@ description: This standard defines how components should communicate with each o
 
 This standard outlines the principles and mechanisms for buffered communication between components. There are two components defined:
 - The sending port
-    - 16 bit output
+    - 32 bit output
     - 1 bit PP (Pushing Packet)
     - 1 bit RST (Reset)
 - The receiving port
-    - 16 bit input
+    - 32 bit input
     - 1 bit RTR (Ready to Receive)
     - 1 bit RST (Reset)
 
@@ -43,4 +43,4 @@ If the sender does not awknowledge the receiver's readiness (aka performs an uns
 
 **Notes:**
 - The 10-tick interval accounts for potential transmission and processing delays.
-- The 16-bit data packet width was chosen for compatibility with the most common data width of modern logic computers.
+- The 32-bit data packet width was chosen for compatibility with a wide range of computers, devices, and usecases.
