@@ -3,13 +3,14 @@ title: Serial Communication Protocol
 description: A basic serial protocol for communication between devices.
 ---
 
-# Standards
+# Standard
+## Protocol
 Data is transmitted at a rate of one bit per tick. A serial packet consists of a single start bit followed immediately by the data. Packets may be sent right after another with no delay in between packets. Each packet has a data width of 8 bits.
 
-# Interface
+## Physical interface
 The serial interface is a singular gate.
 
-### Packet example
+## Packet example
 ```
 +-+--------+
 |1|00101101|
