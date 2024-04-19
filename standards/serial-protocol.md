@@ -6,6 +6,9 @@ description: A basic serial protocol for communication between devices.
 # Standards
 Data is transmitted at a rate of one bit per tick. A serial packet consists of a single start bit followed immediately by the data. Packets may be sent right after another with no delay in between packets. Each packet has a data width of 8 bits.
 
+# Interface
+The serial interface is a singular gate, the gate colour is dim blue (blue, third row down).
+
 ### Packet example
 ```
 +-+--------+
