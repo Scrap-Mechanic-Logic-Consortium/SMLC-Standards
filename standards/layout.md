@@ -4,7 +4,7 @@ description: Standardizes logic component form-factor and IO gate markings
 ---
 
 # Layout
-This is the main logic component layout standard for the SMLC.
+This is the main logic component layout standard for the SMLC. If you make a component (re-usable logic creation like an adder or some RAM) and want to use a standard way of communicating how to use it, this standard is for you. This standard is general and applicable to all logic components, and other more specific standards can be built on top of it.
 
 ## New global terminology
 These are new terms that are used in this standard that should be made global, which will happen in a separate proposal in the terminology repo.
