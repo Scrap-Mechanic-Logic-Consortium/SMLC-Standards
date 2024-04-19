@@ -29,12 +29,12 @@ G = internal gate
 
 ## Interface markings
 To make interfaces clearly visible, and ideally, make their function easy to read with just a glance at a component's documentation, here are some standards for marking interface gates:
-- Paint your input gates in one of the left 4 hues of the paint tool, excluding the gray tones. The 4 hues on the right (excluding orange) should be for outputs.
-  - input = yellow, lime, green, cyan or blue
-  - output = violet, magenta, red or orange
-  - the 8 grayscale and orange colors should NOT be used for interface gates.
+- For each interface, give each gate in that interface the same hue. Color all gates of that interface the dim paint color of that hue (in the 3rd row from the top), except for the least significant bit, which is one unit lighter (2nd row from the top)
+  - If the interface is only one bit (like a trigger or flag bit) it should then be the lighter variant, because it is the LSB.
 - If an interface is a binary number, all gates should be painted in the brightest variant (2nd from top in the paint tool GUI) of the same hue, except for the least significant bit. The LSB should be given the lighter color of the same hue. (the top color)
 Anything that is NOT an interface gate can be painted and oriented however you want, as long as it still complies with what is described in the general shape section.
+- [color] input: description
+- transposed english direction
 
 ### Example color schemes:
 A memory bank:
