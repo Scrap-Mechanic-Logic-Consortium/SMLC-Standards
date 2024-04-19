@@ -33,7 +33,7 @@ To make interfaces clearly visible, and ideally, make their function easy to rea
   - input = yellow, lime, green, cyan or blue
   - output = violet, magenta, red or orange
   - the 8 grayscale and orange colors should NOT be used for interface gates.
-- If an interface is a binary number, the logic gates should be oriented such that the logic symbols point towards the Most significant bit.
+- If an interface is a binary number, all gates should be painted in the brightest variant (2nd from top in the paint tool GUI) of the same hue, except for the least significant bit. The LSB should be given the lighter color of the same hue. (the top color)
 Anything that is NOT an interface gate can be painted and oriented however you want, as long as it still complies with what is described in the general shape section.
 
 ### Example color schemes:
