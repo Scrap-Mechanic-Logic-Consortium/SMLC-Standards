@@ -3,44 +3,59 @@ title: Component Documentation
 description: This standard defines how components should be documented in their blueprint description.
 ---
 
-# Intercomponent Communication
+# Component Documentation
 
 ## Overview
 
-This standard outlines the principles and mechanisms for buffered communication between components. There are two components defined:
-- The sending port
-    - 32 bit output
-    - 1 bit PP (Pushing Packet)
-    - 1 bit RST (Reset)
-- The receiving port
-    - 32 bit input
-    - 1 bit RTR (Ready to Receive)
-    - 1 bit RST (Reset)
+This standard defines how components should be documented in their blueprint description. The goal is to provide a consistent and informative format that works for all components. By following this standard, it will be easier for users to understand how to use a component, because the formatting and terminology is consistent with other components.
 
-## Buffers
+## Terminology
 
-Buffers provide a temporary storage area for data in transit between components. Implementations include:
-- Circular buffers: Allow for multiple requests/packets, optimizing storage efficiency.
-- Single-packet buffers: Ideal for simpler communication scenarios.
-- Devices processing data are assumed to be a buffer in and of themselves.
+- :bearing: **Component**: A logic creation intended to be used inside of other larger logic creaitons. Examples include ALUs, registers, and memory units.
+- :bearing: **Interface**: A set of logic gates that function as input and/or output gates.
+- :bearing: **Flag**: An interface with a single gate, which sends or recieves a continuous on or off signal.
+- :bearing: **Trigger**: An interface with a single gate, which sends or recieves a pulsed signal.
+- :bearing: **Bus**: An interface with multiple gates, which sends or recieves for example a binary number or another form of a multi-bit signal.
+- :bearing: **Trigger bus**: Same as a normal bus, but is also a trigger, where if any of the bits is on, the trigger is considered to be active. It is not possible to send a 0 through a trigger bus, as it would not activate the trigger. This is NOT a bus with a seperate trigger interface. That's just a normal bus and a trigger.
 
-## Handshaking
+## Blueprint Description
+### Short non-technical description
+The blueprint description should start with a short non-technical description of the component. This should be no longer than a paragraph. This description should explain what the component does, and why it is useful. Avoid immedietly diving into technical details, because thats for a later section.
 
-- RTR (Ready to Receive): Indicates the receiving port can accept a new data packet.
-- PP (Pushing Packet): Confirms the sending port is actively transmitting a data packet. Valid data is present on the output line during this phase.
+### Interface decleration
+Next, we describe what inputs and outputs the component has. This should be done using the following format:
+`<interface gate color> <interface type (flag, bus, etc)> <input/output> : <short but descriptive name>`
+(see examples below)
 
-- RTR = 1: The sending port may transmit a data packet. This signal, along with PP, may be brief (a single tick).
-- RTR = 0: The receiver must ignore data and PP; the receiver is not prepared.
-- Receiver's Responsibility: Processing should only begin when RTR is set to 1.
-- Mid-transmission Readiness: If the receiver becomes ready during a transmission, it should momentarily pulse RTR to 1 and begin processing immediately.
+### Detailed description
+After the interface decleration, we should provide a more detailed description of the component. This should include how the component works, and how it should be used. This section should be written in a more technical style, and should be more detailed than the short non-technical description. Here you can use the names of the interfaces you declared earlier.
 
-## Buffer Management
-- Buffered Receivers: Maintain RTR at 1 while the buffer has ample space (10+ free packets). If space drops below 10 packets, pulse RTR x times per 10 ticks (x = number of free packets) to alert the sender.
-- Non-Buffered Receivers: Pulse RTR once every 10 ticks to simulate a single-packet buffer.
+Examples of stuff to discuss are:
+- How to use the component
+- What conventions you used for LSB marking, signed binary number formats, etc
+- With what delay your component responds to inputs
+- What the limist of the component are, and what happens if you exceed them
+- Things that might cause undefined or buggy behavior
+- Wether or not it is okay to "merge delete" the input and output interfaces to reduce the delay of the component
 
-### Unsafe Communication
-If the sender does not awknowledge the receiver's readiness (aka performs an unsafe push), the state of the communication may be damaged. In this case, the sender can send a reset signal through the RST line to reset the communication. Upon resetting, the receiver should clear its buffer and reset its state. Further actions can be taken by the receiver or higher level protocols which is up to implementation.
+### Contact information, licence and credits
+Finally, the blueprint description should include contact information for the creator of the component. (probably you) Preferrebly, this should include a Discord username, but something like an email or a statement that you want messages via steam is also fine.
+Here you can also give other people permission to use your component, and if and how you want to be credited for it.
+Of course if you used someone elses creation or idea in your component, you should credit them here, even if you got permission from them.
 
-**Notes:**
-- The 10-tick interval accounts for potential transmission and processing delays.
-- The 32-bit data packet width was chosen for compatibility with a wide range of computers, devices, and usecases.
+## Example
+```
+This is a 4-bit adder. It takes two 4-bit numbers as input, and outputs the sum of those numbers. This is useful for adding two numbers together in a computer.
+
+blue bus input : A
+red bus input : B
+cyan flag input : Carry in
+green bus output : Sum
+yellow flag output : Carry out
+
+Add two 4-bit two's complement numbers together. The carry in is added to the least significant bit of the first number. The sum is output as a 4-bit two's complement number, and the carry out is the carry out of the most significant bit, acting like a 5th output bit. The carry in is optional, and can be left unconnected if not needed.
+
+This is a carry lookahead adder, and it has a delay of 6 ticks. It is balanced, so streaming in numbers at a high rate should not cause any issues. The input gates are just plain and-gates with no other inputs, do merge deleting them is fine. The output gates are XOR gates with no looped back outputs, so they can be merge deleted as well, as long as they are merger with other XOR gates.
+
+This was made by CodeMaker_4, you can contact me via Discord on @codemaker_4. You can use this component in your creations, but please credit me if you do by mentioning my name and the name of this component in the description of your creation. This is my own work, based on the relevant wikipedia article.
+```
