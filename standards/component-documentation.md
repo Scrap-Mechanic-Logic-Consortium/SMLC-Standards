@@ -37,6 +37,7 @@ Examples of stuff to discuss are:
 - What the limist of the component are, and what happens if you exceed them
 - Things that might cause undefined or buggy behavior
 - Wether or not it is okay to "merge delete" the input and output interfaces to reduce the delay of the component
+- Links to external resources like data sheets or more thorough explanations of the component if they don't fit nicely in a blueprint description
 
 ### Contact information, licence and credits
 Finally, the blueprint description should include contact information for the creator of the component. (probably you) Preferrebly, this should include a Discord username, but something like an email or a statement that you want messages via steam is also fine.
