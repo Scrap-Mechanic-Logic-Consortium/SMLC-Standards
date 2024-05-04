@@ -35,12 +35,12 @@ Buffers provide a temporary storage area for data in transit between components.
 - Mid-transmission Readiness: If the receiver becomes ready during a transmission, it should momentarily pulse RTR to 1 and begin processing immediately.
 
 ## Buffer Management
-- Buffered Receivers: Maintain RTR at 1 while the buffer has ample space (10+ free packets). If space drops below 10 packets, pulse RTR x times per 10 ticks (x = number of free packets) to alert the sender.
+- Buffered Receivers: Maintain RTR at 1 while the buffer has ample space (10+ free packets). If space drops below 10 packets, set RTR to high for x ticks and then low again starting at every tenth tick (x = number of free packets) to alert the sender.
 - Non-Buffered Receivers: Pulse RTR once every 10 ticks to simulate a single-packet buffer.
 
 ### Unsafe Communication
-If the sender does not awknowledge the receiver's readiness (aka performs an unsafe push), the state of the communication may be damaged. In this case, the sender can send a reset signal through the RST line to reset the communication. Upon resetting, the receiver should clear its buffer and reset its state. Further actions can be taken by the receiver or higher level protocols which is up to implementation.
+If the sender does not acknowledge the receiver's readiness (aka performs an unsafe push), the state of the communication may be damaged. In this case, the sender can send a reset signal through the RST line to reset the communication. Upon resetting, the receiver should clear its buffer and reset its state. Further actions can be taken by the receiver or higher level protocols which is up to implementation.
 
 **Notes:**
 - The 10-tick interval accounts for potential transmission and processing delays.
-- The 32-bit data packet width was chosen for compatibility with a wide range of computers, devices, and usecases.
+- The 32-bit data packet width was chosen for compatibility with a wide range of computers, devices, and use cases.
