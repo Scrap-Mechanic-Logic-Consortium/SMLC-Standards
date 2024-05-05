@@ -22,17 +22,17 @@ This standard defines how components should be documented in their blueprint des
 ### Short non-technical description
 The blueprint description should start with a short non-technical description of the component. This should be no longer than a paragraph. This description should explain what the component does, and why it is useful. Avoid immedietly diving into technical details, because thats for a later section.
 
-### Interface decleration
+### Interface declaration
 Next, we describe what inputs and outputs the component has. This should be done using the following format:
 `<interface gate color> <interface type (flag, bus, etc)> <input/output> : <short but descriptive name>`
 (see examples below)
 
 ### Detailed description
-After the interface decleration, we should provide a more detailed description of the component. This should include how the component works, and how it should be used. This section should be written in a more technical style, and should be more detailed than the short non-technical description. Here you can use the names of the interfaces you declared earlier.
+After the interface declaration, we should provide a more detailed description of the component. This should include how the component works, and how it should be used. This section should be written in a more technical style, and should be more detailed than the short non-technical description. Here you can use the names of the interfaces you declared earlier.
 
 Examples of stuff to discuss are:
 - How to use the component
-- What conventions you used for LSB marking, signed binary number formats, etc
+- What conventions you used for LSB marking, signed binary number formats, etc.
 - With what delay your component responds to inputs
 - What the limist of the component are, and what happens if you exceed them
 - Things that might cause undefined or buggy behavior
@@ -40,7 +40,7 @@ Examples of stuff to discuss are:
 - Links to external resources like data sheets or more thorough explanations of the component if they don't fit nicely in a blueprint description
 
 ### Contact information, licence and credits
-Finally, the blueprint description should include contact information for the creator of the component. (probably you) Preferrebly, this should include a Discord username, but something like an email or a statement that you want messages via steam is also fine.
+Finally, the blueprint description should include contact information for the creator of the component (probably you). Preferably, this should include a Discord username, but something like an email or a statement that you want messages via steam is also fine.
 Here you can also give other people permission to use your component, and if and how you want to be credited for it.
 Of course if you used someone elses creation or idea in your component, you should credit them here, even if you got permission from them.
 
