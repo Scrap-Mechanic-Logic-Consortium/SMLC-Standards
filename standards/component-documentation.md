@@ -13,10 +13,6 @@ This standard defines how components should be documented in their blueprint des
 
 - :bearing: **Component**: A logic creation intended to be used inside of other larger logic creaitons. Examples include ALUs, registers, and memory units.
 - :bearing: **Interface**: A set of logic gates that function as input and/or output gates.
-- :bearing: **Flag**: An interface with a single gate, which sends or recieves a continuous on or off signal.
-- :bearing: **Trigger**: An interface with a single gate, which sends or recieves a pulsed signal.
-- :bearing: **Bus**: An interface with multiple gates, which sends or recieves for example a binary number or another form of a multi-bit signal.
-- :bearing: **Trigger bus**: Same as a normal bus, but is also a trigger, where if any of the bits is on, the trigger is considered to be active. It is not possible to send a 0 through a trigger bus, as it would not activate the trigger. This is NOT a bus with a seperate trigger interface. That's just a normal bus and a trigger.
 
 ## Blueprint Description
 ### Short non-technical description
@@ -24,7 +20,7 @@ The blueprint description should start with a short non-technical description of
 
 ### Interface decleration
 Next, we describe what inputs and outputs the component has. This should be done using the following format:
-`<interface gate color> <interface type (flag, bus, etc)> <input/output> : <short but descriptive name>`
+`<interface gate color> <amount of gates> <input/output> : <short but descriptive name>`
 (see examples below)
 
 ### Detailed description
@@ -48,11 +44,11 @@ Of course if you used someone elses creation or idea in your component, you shou
 ```
 This is a 4-bit adder. It takes two 4-bit numbers as input, and outputs the sum of those numbers. This is useful for adding two numbers together in a computer.
 
-blue bus input : A
-red bus input : B
-cyan flag input : Carry in
-green bus output : Sum
-yellow flag output : Carry out
+blue 4-bit input : A
+red 4-bit input : B
+cyan 1-bit input : Carry in
+green 4-bit output : Sum
+yellow 1-bit output : Carry out
 
 Add two 4-bit two's complement numbers together. The carry in is added to the least significant bit of the first number. The sum is output as a 4-bit two's complement number, and the carry out is the carry out of the most significant bit, acting like a 5th output bit. The carry in is optional, and can be left unconnected if not needed.
 
