@@ -1,5 +1,5 @@
 ---
-title: Serial Communication Protocol
+title: Serial Transmission Protocol
 description: A basic serial protocol for communication between devices.
 ---
 
