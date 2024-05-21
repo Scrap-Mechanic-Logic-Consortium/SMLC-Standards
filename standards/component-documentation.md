@@ -11,12 +11,12 @@ This standard defines how components should be documented in their blueprint des
 
 ## Terminology
 
-- :bearing: **Component**: A logic creation intended to be used inside of other larger logic creaitons. Examples include ALUs, registers, and memory units.
+- :bearing: **Component**: A logic creation intended to be used inside of other larger logic creations. Examples include ALUs, registers, and memory units.
 - :bearing: **Interface**: A set of logic gates that function as input and/or output gates.
 
 ## Blueprint Description
 ### Short non-technical description
-The blueprint description should start with a short non-technical description of the component. This should be no longer than a paragraph. This description should explain what the component does, and why it is useful. Avoid immedietly diving into technical details, because thats for a later section.
+The blueprint description should start with a short non-technical description of the component. This should be no longer than a paragraph. This description should explain what the component does, and why it is useful. Avoid immediately diving into technical details, because that's for a later section.
 
 ### Interface declaration
 Next, we describe what inputs and outputs the component has. This should be done using the following format:
@@ -30,15 +30,15 @@ Examples of stuff to discuss are:
 - How to use the component
 - What conventions you used for LSB marking, signed binary number formats, etc.
 - With what delay your component responds to inputs
-- What the limist of the component are, and what happens if you exceed them
+- What the limits of the component are, and what happens if you exceed them
 - Things that might cause undefined or buggy behavior
-- Wether or not it is okay to "merge delete" the input and output interfaces to reduce the delay of the component
+- Whether or not it is okay to "merge delete" the input and output interfaces to reduce the delay of the component
 - Links to external resources like data sheets or more thorough explanations of the component if they don't fit nicely in a blueprint description
 
-### Contact information, licence and credits
+### Contact information, license, and credits
 Finally, the blueprint description should include contact information for the creator of the component (probably you). Preferably, this should include a Discord username, but something like an email or a statement that you want messages via steam is also fine.
 Here you can also give other people permission to use your component, and if and how you want to be credited for it.
-Of course if you used someone elses creation or idea in your component, you should credit them here, even if you got permission from them.
+Of course if you used someone else's creation or idea in your component, you should credit them here, even if you got permission from them.
 
 ## Example
 ```
@@ -52,7 +52,7 @@ yellow 1-bit output : Carry out
 
 Add two 4-bit two's complement numbers together. The carry in is added to the least significant bit of the first number. The sum is output as a 4-bit two's complement number, and the carry out is the carry out of the most significant bit, acting like a 5th output bit. The carry in is optional, and can be left unconnected if not needed.
 
-This is a carry lookahead adder, and it has a delay of 6 ticks. It is balanced, so streaming in numbers at a high rate should not cause any issues. The input gates are just plain and-gates with no other inputs, do merge deleting them is fine. The output gates are XOR gates with no looped back outputs, so they can be merge deleted as well, as long as they are merger with other XOR gates.
+This is a carry lookahead adder, and it has a delay of 6 ticks. It is balanced, so streaming in numbers at a high rate should not cause any issues. The input gates are just plain and-gates with no other inputs, so merge-deleting them is fine. The output gates are XOR gates with no looped back outputs, so they can be merge-deleted as well, as long as they are merged with other XOR gates.
 
 This was made by CodeMaker_4, you can contact me via Discord on @codemaker_4. You can use this component in your creations, but please credit me if you do by mentioning my name and the name of this component in the description of your creation. This is my own work, based on the relevant wikipedia article.
 ```
